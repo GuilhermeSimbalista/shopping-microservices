@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: ms-auth
+
+server:
+  port: 8083
+
+jwt:
+  secret: d1068beeb96a6a79937661d5cc9f290dddaa5730e64b7ab2b238078a1194c614
+  expiration: 3600000
+
+
+
