@@ -1,0 +1,15 @@
+
+spring:
+  application:
+    name: gateway-service
+
+server:
+  port: 8080
+
+ms:
+  auth:
+    url: http://localhost:8083/auth
+
+jwt:
+  secret: d1068beeb96a6a79937661d5cc9f290dddaa5730e64b7ab2b238078a1194c614
+
