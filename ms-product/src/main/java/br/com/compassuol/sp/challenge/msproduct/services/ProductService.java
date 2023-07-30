@@ -6,11 +6,13 @@ import br.com.compassuol.sp.challenge.msproduct.payload.ProductDto;
 import br.com.compassuol.sp.challenge.msproduct.payload.ProductResponse;
 import br.com.compassuol.sp.challenge.msproduct.repositories.ProductRepository;
 
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +26,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public ProductDto createProduct(ProductDto productDto) {
+    public ProductDto createProduct(@Valid ProductDto productDto) {
         Product product = mapToEntity(productDto);
         Product newProduct = productRepository.save(product);
 
@@ -53,6 +55,12 @@ public class ProductService {
         return productResponse;
     }
 
+    public List<ProductDto> getAllById(List<Long> ids) {
+        List<Product> products = productRepository.findAllById(ids);
+
+        return products.stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
     public ProductDto updateProduct(Long id, ProductDto productDto) {
         Product product = findById(id);
 
@@ -68,7 +76,6 @@ public class ProductService {
     public void deleteProduct(Long id) {
         Product product = findById(id);
         productRepository.delete(product);
-
     }
 
     private Product findById(Long id) {
@@ -76,14 +83,18 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product", "id", id));
     }
 
-    private ProductDto mapToDTO(Product product) {
-        ProductDto productDto = new ProductDto();
-        productDto.setId(product.getId());
-        productDto.setName(product.getName());
-        productDto.setDescription(product.getDescription());
-        productDto.setPrice(product.getPrice());
+    public boolean containsTo(List<Long> list1, List<Long> list2) {
+        return new HashSet<>(list1).containsAll(list2);
+    }
 
-        return productDto;
+    private ProductDto mapToDTO(Product product) {
+            ProductDto productDto = new ProductDto();
+            productDto.setId(product.getId());
+            productDto.setName(product.getName());
+            productDto.setDescription(product.getDescription());
+            productDto.setPrice(product.getPrice());
+
+            return productDto;
     }
 
     private Product mapToEntity(ProductDto productDto) {
