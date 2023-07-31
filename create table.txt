@@ -1,0 +1,25 @@
+- Database db_users
+- Open pgadmin select db_users and run these scripts below
+
+create table tb_users (id bigserial not null, name varchar(255) not null, password varchar(255) not null, role varchar(255), username varchar(255) not null unique, primary key (id));
+
+INSERT INTO tb_users (id, name, username, password, role) VALUES 
+	(1, 'Guilherme', 'guilherme', '$2a$10$tD2ifroaNRKfPFyg4oeJSekTa4/fa6fE0LinSqwbRdmHXq9cdHVVS', 'ROLE_USER'),
+	(2, 'Teste', 'teste', '$2a$10$tD2ifroaNRKfPFyg4oeJSekTa4/fa6fE0LinSqwbRdmHXq9cdHVVS', 'ROLE_USER');
+
+
+- Database db_product
+- Open pgadmin select db_product and run these scripts below
+ 
+create table tb_product (price numeric(38,2), id bigserial not null, description varchar(255), name varchar(255), primary key (id));
+
+INSERT INTO tb_product (id, name, description, price) VALUES
+	(1, 'Bike', 'Color Whithe', 1200),
+	(2, 'Car', 'Color Black', 15000);
+
+
+- Database db_order
+- Open pgadmin select db_order and run these scripts below
+
+create table tb_order (id bigserial not null, user_id bigint, city varchar(255), complement varchar(255), district varchar(255), state varchar(255), status varchar(255) check (status in ('PENDING','SHIPPED')), street varchar(255), zip_code varchar(255), products bigint array, primary key (id));
+
