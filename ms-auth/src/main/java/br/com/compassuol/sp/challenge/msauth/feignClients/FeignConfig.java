@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Component
-@FeignClient(name = "ms-user", url = "localhost:8084", path = "/users")
+@FeignClient(name = "ms-user", url = "ms-user:8084", path = "/users")
 public interface FeignConfig {
 
     @GetMapping(value = "/search")

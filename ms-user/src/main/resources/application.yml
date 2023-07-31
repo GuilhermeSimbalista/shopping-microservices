@@ -6,7 +6,7 @@ spring:
   application:
     name: ms-user
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_user
+    url: jdbc:postgresql://postgresql:5432/db_user
     username: postgre
     password: postgre
     driver-class-name: org.postgresql.Driver

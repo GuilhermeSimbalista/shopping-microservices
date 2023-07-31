@@ -32,21 +32,19 @@ public class GatewayConfig {
         return builder.routes()
                 .route("ms-auth", r -> r.path("/auth/**")
                         .filters(f -> f.filter(authenticationFilter()))
-                        .uri("http://localhost:8083"))
+                        .uri("http://ms-auth:8083"))
                 .route("ms-product", r -> r.path("/products/**")
                         .filters(f -> f.filter(authenticationFilter()))
-                        .uri("http://localhost:8081"))
+                        .uri("http://ms-product:8081"))
                 .route("ms-order", r -> r.path("/orders/**")
                         .filters(f -> f.filter(authenticationFilter()))
-                        .uri("http://localhost:8082"))
+                        .uri("http://ms-order:8082"))
                 .route("ms-user", r -> r.path("/users/**")
                         .filters(f -> f.filter(authenticationFilter()))
-                        .uri("http://localhost:8084"))
+                        .uri("http://ms-user:8084"))
                 .route("block-others", r -> r.path("/**")
                         .filters(f -> f.filter(authenticationFilter()))
                         .uri("http://localhost:8080"))
-
-
                 .build();
     }
     private GatewayFilter authenticationFilter() {

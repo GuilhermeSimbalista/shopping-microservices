@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "ms-product", url = "localhost:8081", path = "/products")
+@FeignClient(name = "ms-product", url = "ms-product:8081", path = "/products")
 public interface ProductFeign {
 
     @GetMapping("/ids")

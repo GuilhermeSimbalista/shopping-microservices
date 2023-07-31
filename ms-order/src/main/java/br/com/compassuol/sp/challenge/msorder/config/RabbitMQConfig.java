@@ -44,14 +44,6 @@ public class RabbitMQConfig {
         return rabbitTemplate;
 
     }
-
-
-    //@RabbitListener(queues = QUEUE_NAME)
-    //public void receiveConfirmationMessage(ProductDto message) {
-
-        //System.out.println("mensagem recebida");
-
-    //}
 }
 
 
