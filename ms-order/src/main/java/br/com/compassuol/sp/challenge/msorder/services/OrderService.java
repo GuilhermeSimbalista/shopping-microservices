@@ -82,7 +82,6 @@ public class OrderService {
     @RabbitListener(queues = "confirmation.order-confirm")
     public void receiveMessage(MessageResponse messageResponse) {
 
-        System.out.println(messageResponse);
         isValid = messageResponse.isProductsAvailable();
     }
 
