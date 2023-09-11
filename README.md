@@ -1,4 +1,4 @@
-# CompassUOL Challenge
+# Shopping microservices
 
 The challenge is to implement a microservices-based system using Spring Boot. Each microservice is designed to be autonomous, focused on a single responsibility, and can be deployed and scaled independently of the others.
 
@@ -6,6 +6,7 @@ The challenge is to implement a microservices-based system using Spring Boot. Ea
 
 - Spring Boot
 - Spring Cloud Gateway
+- Spring Security
 - Feign Client
 - RabbitMQ
 - JWT
@@ -58,15 +59,6 @@ RabbitMQ password: guest
 
 PostgreSQL user: postgre
 PostgreSQL Password: postgre
-
-**Authentication**
-
-username:guilherme
-password:123
-
-## Doubts
-
-Get in touch: guilherme.schelba.pb@compasso.com.br
 
 
 
