@@ -1,4 +1,4 @@
-# Shopping microservices
+# Shopping Microservices
 
 The challenge is to implement a microservices-based system using Spring Boot. Each microservice is designed to be autonomous, focused on a single responsibility, and can be deployed and scaled independently of the others.
 
